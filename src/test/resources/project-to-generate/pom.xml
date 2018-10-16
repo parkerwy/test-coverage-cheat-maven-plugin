@@ -13,9 +13,12 @@
     <build>
         <plugins>
             <plugin>
+                <groupId>com.github.parkerwy</groupId>
                 <artifactId>test-coverage-cheating-maven-plugin</artifactId>
+                <version>1.0.0</version>
                 <configuration>
-
+                    <numberOfClass>200</numberOfClass>
+                    <numberOfStatement>1000</numberOfStatement>
                 </configuration>
             </plugin>
         </plugins>

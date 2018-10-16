@@ -10,7 +10,7 @@ import java.io.File;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
-public class CleanMojoTest {
+public class MojoTest {
     @Rule
     public MojoRule rule = new MojoRule() {
         @Override
@@ -22,12 +22,20 @@ public class CleanMojoTest {
         }
     };
 
-    /**
-     * @throws Exception if any
-     */
+    @Test
+    public void shouldRunGenerateMojo() throws Exception {
+        File pom = new File("target/test-classes/project-to-generate/");
+        assertNotNull(pom);
+        assertTrue(pom.exists());
+
+        GenerateMojo generateMojo = (GenerateMojo) rule.lookupConfiguredMojo(pom, "generate");
+        assertNotNull(generateMojo);
+        generateMojo.execute();
+    }
+
     @Test
     public void shouldRunCleanMojo() throws Exception {
-        File pom = new File("target/test-classes/project-to-test/");
+        File pom = new File("target/test-classes/project-to-clean/");
         assertNotNull(pom);
         assertTrue(pom.exists());
 
@@ -35,6 +43,5 @@ public class CleanMojoTest {
         assertNotNull(cleanMojo);
         cleanMojo.execute();
     }
-
 }
 

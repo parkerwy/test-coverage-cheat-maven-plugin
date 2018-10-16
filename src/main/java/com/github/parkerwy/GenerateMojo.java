@@ -52,6 +52,7 @@ public class GenerateMojo
             String className = faker.superhero().name();
             className = StringUtils.replace(className, " ", "");
             className = StringUtils.replace(className, "-", "");
+            className = StringUtils.replace(className, "'", "");
 
             generateMainClass(packageName, className);
             generateTestClass(packageName, className);
