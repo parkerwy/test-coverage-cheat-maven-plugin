@@ -1,1 +1,1 @@
-# test-coverage-cheating-maven-plugin
+# Test Coverage Cheating Maven Plugin
